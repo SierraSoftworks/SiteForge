@@ -32,3 +32,19 @@ it('should correctly prepare default options', function() {
 		compilers: SiteForge.compilers
 	});
 });
+
+it('should correctly resolve options', function() {
+	var forge = new SiteForge({
+		views: './test/resources/views',
+		static: './test/resources/static',
+		output: './test/output'
+	});
+
+	forge.options.should.eql({
+		views: process.cwd() + '/test/resources/views',
+		engine: 'jade',
+		static: process.cwd() + '/test/resources/static',
+		output: process.cwd() + '/test/output',
+		compilers: SiteForge.compilers
+	});
+});

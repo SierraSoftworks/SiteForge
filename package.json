@@ -1,9 +1,16 @@
 {
 	"name": "siteforge",
+	"description": "Static website generation framework by Sierra Softworks",
 	"version": "1.0.0",
 	"author": "Sierra Softworks <admin@sierrasoftworks.com>",
-	"website": "https://sierrasoftworks.com",
+	"homepage": "https://sierrasoftworks.com",
 	"repository": "https://github.com/sierrasoftworks/siteforge",
+
+	"main": "./index",
+
+	"scripts": {
+		"test": "mocha"
+	},
 
 	"dependencies": {
 		"jade": "*",

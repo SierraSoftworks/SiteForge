@@ -30,15 +30,15 @@ forge.expansions.project = Object.keys(projects);
 
 var routes = {
 	'/': function() {
-		this.view('index');
+		this.render('index');
 	},
 	'/projects': function() {
 		this.locals.projects = projects;
-		this.view('projects');
+		this.render('projects');
 	},
 	'/:project': function(project) {
 		this.locals.project = projects[project];
-		this.view('project');
+		this.render('project');
 	}
 };
 

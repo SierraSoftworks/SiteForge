@@ -27,6 +27,19 @@ describe('routes', function() {
 				this.locals.should.eql({ expected: true });
 				done();
 			}
+		});
+	});
+
+	it('should not allow child locals to manipulate original locals', function(done) {
+		forge.locals.expected = true;
+
+		forge.compile({
+			'/': function() {
+				this.locals.should.eql({ expected: true });
+				this.locals.expected = false;
+				forge.locals.should.eql({ expected: true });
+				done();
+			}
 		})
 	});
 });

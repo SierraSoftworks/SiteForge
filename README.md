@@ -42,5 +42,9 @@ var routes = {
 	}
 };
 
+// Compile "dynamic" routes
 forge.compile(routes);
+
+// Compile static resources
+forge.compileStatic();
 ```

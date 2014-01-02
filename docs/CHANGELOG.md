@@ -1,4 +1,4 @@
-### v1.0.3
+### v1.0.3, v1.0.4
  - Further improved directory tree creation for Routes
 
 ### v1.0.2

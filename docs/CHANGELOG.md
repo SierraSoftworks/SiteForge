@@ -1,3 +1,6 @@
+### v1.1.2
+ - Fix Route.render behaviour
+
 ### v1.1.1
  - Allow rendering of a view without writing a file (for partial views)
 

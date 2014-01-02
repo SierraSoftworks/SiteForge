@@ -1,3 +1,7 @@
+### v1.1.3
+ - Fix Route.render compiler calls
+ - Revert some changes to content compiler API
+
 ### v1.1.2
  - Fix Route.render behaviour
 

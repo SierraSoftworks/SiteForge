@@ -20,7 +20,7 @@
 		"jade": "*",
 		"less": "*",
 		"lodash": "*",
-		"ncp": "*",
+		"ncp": "git@github.com:SierraSoftworks/ncp.git",
 		"async": "*"
 	},
 

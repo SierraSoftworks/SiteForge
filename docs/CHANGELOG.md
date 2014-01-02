@@ -1,4 +1,4 @@
-### v1.1.7
+### v1.1.7, v1.1.8
  - Switched to a custom ncp with support for renaming of files
 
 ### v1.1.6

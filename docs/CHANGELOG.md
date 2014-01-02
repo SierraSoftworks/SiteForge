@@ -1,3 +1,6 @@
+### v1.1.5
+ - Improved Route.render output path selection logic
+
 ### v1.1.4
  - Fixed Route.render with nested view paths
 

@@ -1,3 +1,6 @@
+### v1.1.6
+ - Fixed extension handling for Render.outputPath
+
 ### v1.1.5
  - Improved Route.render output path selection logic
 

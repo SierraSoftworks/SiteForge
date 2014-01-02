@@ -1,4 +1,4 @@
-# SiteForge
+# SiteForge [![Build Status](https://travis-ci.org/SierraSoftworks/SiteForge.png?branch=master)](https://travis-ci.org/SierraSoftworks/SiteForge) [![](https://badge.fury.io/js/siteforge.png)](https://npmjs.org/package/siteforge)
 **Powerful Static Website Generator**
 
 ## What Is SiteForge?

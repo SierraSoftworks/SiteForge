@@ -1,3 +1,6 @@
+### v1.1.7
+ - Switched to a custom ncp with support for renaming of files
+
 ### v1.1.6
  - Fixed extension handling for Render.outputPath
 

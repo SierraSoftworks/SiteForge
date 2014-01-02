@@ -1,3 +1,6 @@
+### v1.1.10
+ - Fixed invalid `this.compilers` reference for compileStatic
+
 ### v1.1.9
  - Fixed invalid `this` reference for compileStatic 
 

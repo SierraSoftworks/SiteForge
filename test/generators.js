@@ -73,54 +73,62 @@ describe('generator', function() {
 			forge.routes = {
 				'/output': function() {
 					this.json({ valid: true });
-					fs.existsSync(path.resolve(forge.options.output, 'output.json')).should.be.true;
-					fs.readFileSync(path.resolve(forge.options.output, 'output.json'), { encoding: 'utf8' }).should.eql('{"valid":true}');
-					done();
 				}
 			};
 
-			forge.compileDynamic();
+			forge.compileDynamic(function(err) {
+				if(err) return done(err);				
+				fs.existsSync(path.resolve(forge.options.output, 'output.json')).should.be.true;
+				fs.readFileSync(path.resolve(forge.options.output, 'output.json'), { encoding: 'utf8' }).should.eql('{"valid":true}');
+				done();
+			});
 		});
 
 		it('should render direct content to file', function(done) {
 			forge.routes = {
 				'/files/output.txt': function() {
 					this.send("valid: true");
-					fs.existsSync(path.resolve(forge.options.output, 'files/output.txt')).should.be.true;
-					fs.readFileSync(path.resolve(forge.options.output, 'files/output.txt'), { encoding: 'utf8' }).should.eql('valid: true');
-					done();
 				}
 			};
 
-			forge.compileDynamic();
+			forge.compileDynamic(function(err) {
+				if(err) return done(err);				
+				fs.existsSync(path.resolve(forge.options.output, 'files/output.txt')).should.be.true;
+				fs.readFileSync(path.resolve(forge.options.output, 'files/output.txt'), { encoding: 'utf8' }).should.eql('valid: true');
+				done();
+			});
 		});
 
 		it('should render files correctly', function(done) {
 			forge.routes = {
 				'/stylesheet': function() {
 					this.file('test/resources/static/style.less');
-					fs.existsSync(path.resolve(forge.options.output, 'stylesheet.less')).should.be.true;
-					var expected = fs.readFileSync(path.resolve(process.cwd(), 'test/resources/static/style.less'), { encoding: 'utf8' });
-					fs.readFileSync(path.resolve(forge.options.output, 'stylesheet.less'), { encoding: 'utf8' }).should.eql(expected);
-					done();
 				}
 			};
 
-			forge.compileDynamic();
+			forge.compileDynamic(function(err) {
+				if(err) return done(err);
+				fs.existsSync(path.resolve(forge.options.output, 'stylesheet.less')).should.be.true;
+				var expected = fs.readFileSync(path.resolve(process.cwd(), 'test/resources/static/style.less'), { encoding: 'utf8' });
+				fs.readFileSync(path.resolve(forge.options.output, 'stylesheet.less'), { encoding: 'utf8' }).should.eql(expected);
+				done();
+			});
 		});
 
 		it('should correctly render views', function(done) {
 			forge.routes = {
 				'/': function() {
 					this.render('index');
-					fs.existsSync(path.resolve(forge.options.output, 'index.html')).should.be.true;
-					var expected = fs.readFileSync(path.resolve(process.cwd(), 'test/resources/expected/index.html'), { encoding: 'utf8' });
-					fs.readFileSync(path.resolve(forge.options.output, 'index.html'), { encoding: 'utf8' }).should.eql(expected);
-					done();
 				}
 			};
 
-			forge.compileDynamic();
+			forge.compileDynamic(function(err) {
+				if(err) return done(err);
+				fs.existsSync(path.resolve(forge.options.output, 'index.html')).should.be.true;
+				var expected = fs.readFileSync(path.resolve(process.cwd(), 'test/resources/expected/index.html'), { encoding: 'utf8' });
+				fs.readFileSync(path.resolve(forge.options.output, 'index.html'), { encoding: 'utf8' }).should.eql(expected);
+				done();
+			});
 		});
 	});
 });

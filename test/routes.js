@@ -14,11 +14,11 @@ describe('routes', function() {
 		forge.routes = {
 			'/': function() {
 				this.path.should.eql('/');
-				done();
+				this.done();
 			}
 		};
 
-		forge.compileDynamic();
+		forge.compileDynamic(done);
 	});
 
 	it('should correctly inherit locals', function(done) {
@@ -26,11 +26,11 @@ describe('routes', function() {
 		forge.routes = {
 			'/': function() {
 				this.locals.should.eql({ expected: true });
-				done();
+				this.done();
 			}
 		};
 
-		forge.compileDynamic();
+		forge.compileDynamic(done);
 	});
 
 	it('should not allow child locals to manipulate original locals', function(done) {
@@ -40,11 +40,11 @@ describe('routes', function() {
 				this.locals.should.eql({ expected: true });
 				this.locals.expected = false;
 				forge.locals.should.eql({ expected: true });
-				done();
+				this.done();
 			}
 		};
 
-		forge.compileDynamic();
+		forge.compileDynamic(done);
 	});
 
 	it('should correctly expand paths', function(done) {		
@@ -56,11 +56,11 @@ describe('routes', function() {
 				should.exist(expansion);
 				this.path.should.eql('/' + expansion);
 				remaining.splice(remaining.indexOf(this.path), 1);
-				if(remaining.length === 0) done();
+				this.done();
 			}
 		};
 
-		forge.compileDynamic();
+		forge.compileDynamic(done);
 	});
 
 	it('should correctly expand nested paths', function(done) {		
@@ -75,10 +75,10 @@ describe('routes', function() {
 
 				this.path.should.eql('/' + exp1 + '/' + exp2);
 				remaining.splice(remaining.indexOf(this.path), 1);
-				if(remaining.length === 0) done();
+				this.done();
 			}
 		};
 
-		forge.compileDynamic();
+		forge.compileDynamic(done);
 	});
 });

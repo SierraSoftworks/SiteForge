@@ -12,6 +12,10 @@
 		"test": "mocha"
 	},
 
+	"engines": {
+		"node": ">=0.10"
+	},
+
 	"dependencies": {
 		"jade": "*",
 		"less": "*",

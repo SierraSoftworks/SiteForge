@@ -39,6 +39,9 @@ This property returns the `options` object that was passed to the `SiteForge` co
 ### locals
 This property allows you to globally set variables that will be available to all compilers, they are used to allow views to access runtime information (for example, content from a database or web service).
 
+### routes
+This property defines the routes and their generators used to create "dynamic" content pages.
+
 ### expansions
 SiteForge allows you to generate pages for non-static paths using common generators through the use of path expansions. These work similarly to Express.js' `params` with the exception that (since the content is static) all valid possibilities need to be known beforehand.
 
@@ -82,19 +85,15 @@ This method can be used on a SiteForge instance, and instructs this instance to 
   logo.png
 ```
 
-### compile(routes)
+### compileDynamic()
 This method works similarly to `SiteForge.prototype.compileStatic()` however it is designed to allow the generation of vastly more complex content through the use of generator functions and path component expansions. Because of the way it is designed, it is possible to generate a complex website from a dynamic data store - allowing you to serve static content while allowing faster content creation.
-
-The `routes` parameter represents a map of paths to their generator functions, and allows the use of path expansions to generate exponentially more routes than are defined.
 
 You can manipulate the output path (and effective URL) of the file by changing `this.path` within the generator prior to calling an output function like `this.render`, `this.json`, `this.send` or `this.file`. 
 
 Similarly, you can locally manipulate the `locals` passed to a view by changing `this.locals` prior to the `this.render` call. Take note that changing `this.locals` will **not** affect the instance's `locals`.
 
-**Important**, routes should always begin with a `'/'`, or set `this.path = '/' + ...` at some point within their generator, for them to work correctly.
-
 ```javascript
-forge.compile({
+forge.routes = {
 	'/': function() {
 		this.locals.title = 'SiteForge';
 		this.render('index');
@@ -110,5 +109,13 @@ forge.compile({
 			'**Benjamin Pannell** @[Sierra Softworks](https://sierrasoftworks.com)'
 		].join('\r\n'));
 	}
-})
+};
+```
+
+```
+./site
+  - index.html
+  - about/
+    - index.html
+  - humans.txt
 ```

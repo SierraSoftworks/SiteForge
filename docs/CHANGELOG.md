@@ -1,3 +1,7 @@
+### v1.1.0
+ - Switched to async compilation API
+ - Simpler content generator API (file handling is handled internally now)
+
 ### v1.0.5
  - Allow view render to specify file extension for converter selection
 

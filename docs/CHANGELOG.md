@@ -1,3 +1,6 @@
+### v1.1.11
+ - Fixed extension generation for static content
+
 ### v1.1.10
  - Fixed invalid `this.compilers` reference for compileStatic
 

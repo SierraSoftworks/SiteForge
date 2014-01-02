@@ -1,3 +1,6 @@
+### v1.1.9
+ - Fixed invalid `this` reference for compileStatic 
+
 ### v1.1.7, v1.1.8
  - Switched to a custom ncp with support for renaming of files
 

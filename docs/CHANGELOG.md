@@ -1,3 +1,6 @@
+### v1.1.1
+ - Allow rendering of a view without writing a file (for partial views)
+
 ### v1.1.0
  - Switched to async compilation API
  - Simpler content generator API (file handling is handled internally now)

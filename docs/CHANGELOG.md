@@ -1,3 +1,6 @@
+### v1.0.5
+ - Allow view render to specify file extension for converter selection
+
 ### v1.0.3, v1.0.4
  - Further improved directory tree creation for Routes
 

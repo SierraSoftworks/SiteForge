@@ -1,3 +1,6 @@
+### v1.0.3
+ - Further improved directory tree creation for Routes
+
 ### v1.0.2
  - All .html generated files for routes are rendered to {name}/index.html for consistency
 

@@ -84,10 +84,10 @@ describe('generator', function() {
 
 		it('should render direct content to file', function(done) {
 			forge.routes = {
-				'/output.txt': function() {
+				'/files/output.txt': function() {
 					this.send("valid: true");
-					fs.existsSync(path.resolve(forge.options.output, 'output.txt')).should.be.true;
-					fs.readFileSync(path.resolve(forge.options.output, 'output.txt'), { encoding: 'utf8' }).should.eql('valid: true');
+					fs.existsSync(path.resolve(forge.options.output, 'files/output.txt')).should.be.true;
+					fs.readFileSync(path.resolve(forge.options.output, 'files/output.txt'), { encoding: 'utf8' }).should.eql('valid: true');
 					done();
 				}
 			};

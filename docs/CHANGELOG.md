@@ -1,3 +1,6 @@
+### v1.1.4
+ - Fixed Route.render with nested view paths
+
 ### v1.1.3
  - Fix Route.render compiler calls
  - Revert some changes to content compiler API

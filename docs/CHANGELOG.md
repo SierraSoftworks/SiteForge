@@ -1,3 +1,7 @@
+### v1.1.12
+ - Fixed static content compilation
+ - Fixed LESS compiler references
+
 ### v1.1.11
  - Fixed extension generation for static content
 

@@ -61,7 +61,7 @@ forge.compile({
 })
 ```
 
-### compileStatic()
+### compileStatic(done)
 This method can be used on a SiteForge instance, and instructs this instance to compile all static site resources. This process consists of recursively scanning the `options.static` directory for files, compiling those for which a valid compiler is present in `options.compilers` and copying directly for those for which a compiler is not present. The output files will be placed in the `options.output` directory, with the same directory structure as `options.static`.
 
 #### Example
@@ -85,7 +85,7 @@ This method can be used on a SiteForge instance, and instructs this instance to 
   logo.png
 ```
 
-### compileDynamic()
+### compileDynamic(done)
 This method works similarly to `SiteForge.prototype.compileStatic()` however it is designed to allow the generation of vastly more complex content through the use of generator functions and path component expansions. Because of the way it is designed, it is possible to generate a complex website from a dynamic data store - allowing you to serve static content while allowing faster content creation.
 
 You can manipulate the output path (and effective URL) of the file by changing `this.path` within the generator prior to calling an output function like `this.render`, `this.json`, `this.send` or `this.file`. 
@@ -118,4 +118,35 @@ forge.routes = {
   - about/
     - index.html
   - humans.txt
+```
+
+### compileSiteMap(host|preprocessor, done)
+This method generates an XML sitemap in accordance with the [SiteMap Protocol](http://www.sitemaps.org/protocol.html) for use by search
+engines. The sitemap is generated from `SiteForge.routes` and doesn't include any static files. When generating a sitemap you can choose to provide either the host on which the site will be run, or a custom preprocessor. The default preprocessor (when host is provided) looks like this.
+
+```javascript
+preprocessor = function(path) {
+	return { loc: host + path };
+};
+```
+
+You may choose to include additional XML nodes by adding properties to the returned object.
+
+```javascript
+forge.routes = {
+	'/': function() {},
+	'/home': function() {}
+}
+```
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	<url>
+		<loc>http://localhost:3000/</loc>
+	</url>
+	<url>
+		<loc>http://localhost:3000/home</loc>
+	</url>
+</urlset>
 ```

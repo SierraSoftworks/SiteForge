@@ -1,3 +1,6 @@
+### v1.2.2
+ - Allow SiteMap preprocessor to return falsey values for no output
+
 ### v1.2.1
  - Fixed compileStatic never calling done()
 

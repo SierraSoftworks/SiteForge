@@ -1,3 +1,6 @@
+### v1.2.1
+ - Fixed compileStatic never calling done()
+
 ### v1.2.0
  - Added SiteMap compiler option
 

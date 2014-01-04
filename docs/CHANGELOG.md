@@ -1,3 +1,6 @@
+### v1.2.0
+ - Added SiteMap compiler option
+
 ### v1.1.12
  - Fixed static content compilation
  - Fixed LESS compiler references

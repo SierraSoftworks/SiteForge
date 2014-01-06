@@ -52,3 +52,30 @@ forge.routes = {
 // Compile website (static and "dynamic" content)
 forge.compile();
 ```
+
+## Hosting Websites
+Hosting a SiteForge website is ludicrously simple, all you need is an installation of NGINX and a config file like the following.
+
+```
+server {
+	listen 80;
+
+	server_name next.sierrasoftworks.com;
+
+	access_log /web/log/next_access.log;
+	error_log /web/log/next_error.log;
+	root /web/sierrasoftworks.com;
+
+	error_page 404 = /errors/not_found.html;
+
+	location / {
+			if_modified_since exact;
+			expires 1m;
+			try_files $uri $uri/index.html =404;
+	}
+
+	location /errors {
+			internal;
+	}
+}
+```

@@ -1,3 +1,6 @@
+### v1.2.3
+ - Added example NGINX config to README
+
 ### v1.2.2
  - Allow SiteMap preprocessor to return falsey values for no output
 

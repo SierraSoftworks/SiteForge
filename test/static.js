@@ -10,12 +10,11 @@ describe('static files', function() {
 		output: './test/output'
 	});
 
-	it('should correctly compile static files', function() {
-		forge.compileStatic();
-
-		var basePath = path.resolve(process.cwd(), './test/output');
-
-		fs.existsSync(path.resolve(basePath, './bootstrap.min.css')).should.be.true;
-		fs.existsSync(path.resolve(basePath, './style.min.css')).should.be.true;
+	it('should correctly compile static files', function(done) {
+		forge.compileStatic(function() {
+			fs.existsSync(path.resolve(forge.options.output, 'bootstrap.min.css')).should.be.true;
+			fs.existsSync(path.resolve(forge.options.output, 'style.min.css')).should.be.true;
+			done();
+		});
 	});
 });
